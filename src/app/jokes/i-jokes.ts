@@ -1,4 +1,5 @@
 export interface Jokes {
+  id?: number;
   joke: {
     content: string;
     category: string;

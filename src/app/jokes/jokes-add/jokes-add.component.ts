@@ -43,11 +43,11 @@ export class JokesAddComponent  {
 
   watchTypeFormControl() {
     this.form.get('type').valueChanges.subscribe(value => {
-      if (value === 'multi') {
+      if (value === 'Two Part') {
         this.showDelivery = true;
         this.form.addControl('delivery', new FormControl('', Validators.required));
       }
-      if (value === 'single') {
+      if (value === 'Single') {
         this.showDelivery = false;
         this.form.removeControl('delivery');
       }

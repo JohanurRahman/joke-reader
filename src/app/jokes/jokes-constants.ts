@@ -1,33 +1,7 @@
-const Categories = [
-  {
-    key: 'miscellaneous',
-    viewValue: 'Miscellaneous'
-  },
-  {
-    key: 'pun',
-    viewValue: 'Pun'
-  },
-  {
-    key: 'programming',
-    viewValue: 'Programming'
-  },
-  {
-    key: 'dark',
-    viewValue: 'Dark'
-  },
-];
+import { Jokes } from './i-jokes';
 
-const Types = [
-  {
-    key: 'single',
-    viewValue: 'Single'
-  },
-  {
-    key: 'multi',
-    viewValue: 'Two Part'
-  }
-];
-
+const Categories = ['Miscellaneous', 'Pun', 'Programming', 'Dark'];
+const Types = ['Single', 'Two Part'];
 const Flags = [
   { title: 'NSFW', selected: false },
   { title: 'Religious', selected: true },
@@ -35,4 +9,32 @@ const Flags = [
   { title: 'Racist', selected: false },
 ];
 
-export { Categories, Types, Flags };
+const Jokes: Jokes[] = [
+  {
+    id: 1,
+    joke: {
+      content: 'I went to buy some camo pants but couldn’t find any',
+      category: 'Test 1'
+    },
+    flags: ['http']
+  },
+  {
+    id: 2,
+    joke: {
+      content: 'My wife told me to stop impersonating a flamingo. I had to put my foot down',
+      category: 'Test 2'
+    },
+    flags: ['http']
+  },
+  {
+    id: 3,
+    joke: {
+      content: 'Why does Waldo wear stripes?',
+      category: 'Pro',
+      punchline: 'Because he doesnt want to be spotted'
+    },
+    flags: ['http']
+  }
+];
+
+export { Categories, Types, Flags, Jokes };
