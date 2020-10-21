@@ -9,6 +9,10 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: './jokes-list/jokes-list.module#JokesListModule',
+      },
+      {
+        path: 'add',
+        loadChildren: './jokes-add/jokes-add.module#JokesAddModule'
       }
     ]
   }
