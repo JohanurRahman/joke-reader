@@ -1,0 +1,43 @@
+:host ::ng-deep {
+  .mat-checkbox-layout {
+    margin-bottom: 0;
+  }
+
+  .mat-card-actions {
+    display: flex;
+    .button {
+      &-back, &-save {
+        width: 100%;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      &-back {
+        margin-right: 10px;
+      }
+      &-save {
+        background-color: #4373f5;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.example-margin {
+  margin-right: 20px;
+  //margin: 0 10px;
+}
+

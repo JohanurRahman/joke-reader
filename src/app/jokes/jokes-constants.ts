@@ -12,10 +12,9 @@ const Flags = [
 const Jokes: Joke[] = [
   {
     id: 1,
-    joke: {
-      content: 'I went to buy some camo pants but couldn’t find any',
-      category: 'Programming'
-    },
+    content: 'I went to buy some camo pants but couldn’t find any',
+    category: 'Programming',
+    type: 'Single',
     flags: [
       {title: 'NSFW', selected: true},
       {title: 'Religious', selected: false},
@@ -25,10 +24,9 @@ const Jokes: Joke[] = [
   },
   {
     id: 2,
-    joke: {
-      content: 'My wife told me to stop impersonating a flamingo. I had to put my foot down',
-      category: 'Pun'
-    },
+    content: 'My wife told me to stop impersonating a flamingo. I had to put my foot down',
+    category: 'Pun',
+    type: 'Single',
     flags: [
       {title: 'NSFW', selected: false},
       {title: 'Religious', selected: false},
@@ -38,11 +36,10 @@ const Jokes: Joke[] = [
   },
   {
     id: 3,
-    joke: {
-      content: 'Why does Waldo wear stripes?',
-      category: 'Miscellaneous',
-      punchline: 'Because he doesnt want to be spotted'
-    },
+    content: 'Why does Waldo wear stripes?',
+    category: 'Miscellaneous',
+    punchline: 'Because he doesnt want to be spotted',
+    type: 'Two Part',
     flags: [
       {title: 'NSFW', selected: false},
       {title: 'Religious', selected: true},
