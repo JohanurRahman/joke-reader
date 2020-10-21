@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JokesAddComponent implements OnInit {
 
+  checked = false;
+  indeterminate = false;
+
   constructor() { }
 
   ngOnInit() {
