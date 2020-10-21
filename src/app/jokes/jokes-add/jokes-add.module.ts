@@ -4,7 +4,7 @@ import { JokesAddComponent } from './jokes-add.component';
 import { JokesAddRoutingModule } from './jokes-add-routing.module';
 import { MatCardModule } from '@angular/material/card';
 import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [ JokesAddComponent ],
@@ -17,7 +17,8 @@ import {FormsModule} from '@angular/forms';
     MatSelectModule,
     MatInputModule,
     FormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ReactiveFormsModule
   ]
 })
 
