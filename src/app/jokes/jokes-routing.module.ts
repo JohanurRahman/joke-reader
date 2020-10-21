@@ -17,6 +17,10 @@ const routes: Routes = [
       {
         path: ':jokes_id/edit',
         loadChildren: './jokes-edit/jokes-edit.module#JokesEditModule'
+      },
+      {
+        path: ':jokes_id/play',
+        loadChildren: './jokes-player/jokes-player.module#JokesPlayerModule'
       }
     ]
   }
