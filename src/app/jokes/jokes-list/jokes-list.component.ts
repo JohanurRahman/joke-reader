@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Jokes } from '../i-jokes';
 
-const ELEMENT_DATA: Jokes[] = [
+const Jokes: Jokes[] = [
   {
     joke: {
       content: 'I went to buy some camo pants but couldn’t find any',
@@ -35,11 +35,24 @@ export class JokesListComponent implements OnInit {
 
 
   displayedColumns: string[] = ['joke', 'flags', 'actions'];
-  dataSource = ELEMENT_DATA;
+  dataSource = Jokes;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  playRandomJokes() {
+    for (const item of Jokes) {
+      if (item.joke.punchline) {
+        const content = new SpeechSynthesisUtterance(item.joke.content);
+        const punchline = new SpeechSynthesisUtterance(item.joke.punchline);
+        (window as any).speechSynthesis.speak(content);
+        (window as any).speechSynthesis.speak(punchline);
+      } else {
+        const content = new SpeechSynthesisUtterance(item.joke.content);
+        (window as any).speechSynthesis.speak(content);
+      }
+    }
+  }
 }

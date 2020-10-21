@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { JokesListComponent } from './jokes-list.component';
 import { JokesListRoutingModule } from './jokes-list-routing.module';
 import { MatTableModule } from '@angular/material/table';
+import {MatButtonModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { MatTableModule } from '@angular/material/table';
   imports: [
     CommonModule,
     JokesListRoutingModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule
   ]
 })
 

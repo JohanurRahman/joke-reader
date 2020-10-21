@@ -1,3 +1,28 @@
+:host ::ng-deep {
+  .mat-stroked-button {
+    &:first-of-type {
+      margin-right: 10px;
+    }
+  }
+
+  .mat-button-wrapper {
+    display: flex;
+    align-items: center;
+    .icon {
+      &-add, &-play {
+        font-size: 18px;
+        margin-right: 5px;
+      }
+      &-add {
+        font-weight: 600;
+      }
+      &-play {
+        color: #ff0000;
+      }
+    }
+  }
+}
+
 .actions {
   display: flex;
   align-items: center;
@@ -24,7 +49,7 @@
 
     &-play {
       border: solid 1px #fa5252;
-      color: #fa5252;
+      color: #ff0000;
       &:hover {
         background-color: #fa5252;
       }

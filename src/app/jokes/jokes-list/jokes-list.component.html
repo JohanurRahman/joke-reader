@@ -1,3 +1,16 @@
+<div class="d-flex justify-content-end mb-3">
+  <a class="text-decoration-none" mat-stroked-button routerLink="./add">
+    <i class="material-icons icon-add">add</i>
+    <span>Add New Joke</span>
+  </a>
+
+  <a class="text-decoration-none" mat-stroked-button (click)="playRandomJokes()">
+    <i class="material-icons icon-play">play_arrow</i>
+    <span>Play Jokes</span>
+  </a>
+</div>
+
+
 <table mat-table [dataSource]="dataSource" class="table-theme">
 
   <!-- Position Column -->
