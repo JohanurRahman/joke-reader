@@ -13,6 +13,10 @@ const routes: Routes = [
       {
         path: 'add',
         loadChildren: './jokes-add/jokes-add.module#JokesAddModule'
+      },
+      {
+        path: ':jokes_id/edit',
+        loadChildren: './jokes-edit/jokes-edit.module#JokesEditModule'
       }
     ]
   }
