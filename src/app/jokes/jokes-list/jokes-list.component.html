@@ -50,3 +50,8 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+
+<div class="mt-3 d-flex justify-content-end">
+  <pagination [totalItems]="jokesList.length" [itemsPerPage]="itemsPerPage" (pageChanged)="pageChanged($event)"></pagination>
+</div>
