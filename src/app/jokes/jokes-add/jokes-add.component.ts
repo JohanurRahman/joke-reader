@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { Categories, Flags, Types } from '../jokes-constants';
+import {Categories, Flags, Types} from '../jokes-constants';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Joke} from '../i-jokes';
+import {MatSnackBar} from '@angular/material';
 @Component({
   selector: 'app-jokes-add',
   templateUrl: './jokes-add.component.html',
@@ -11,14 +13,17 @@ export class JokesAddComponent  {
   categories = Categories;
   types = Types;
   flags = Flags;
+  jokes: Joke[];
 
   form: FormGroup;
 
   showDelivery = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private snackBar: MatSnackBar) {
     this.constructForm();
     this.watchTypeFormControl();
+    this.getJokesFromStorage();
   }
 
   constructForm() {
@@ -54,9 +59,22 @@ export class JokesAddComponent  {
     });
   }
 
+  getJokesFromStorage() {
+    this.jokes = JSON.parse(localStorage.getItem('jokes')) ? JSON.parse(localStorage.getItem('jokes')) : [];
+  }
+
   submitForm() {
+    if (this.form.invalid) {
+      this.openSnackBar('Please fill all the forms');
+      return;
+    }
     const formValue = this.mapFlagsCheckboxValues();
-    console.log(formValue);
+    const constructedData = this.constructFormData(formValue);
+    this.storeJokeIntoLocalStorage(constructedData);
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, 'Ok', { duration: 5000, horizontalPosition: 'center', verticalPosition: 'top'});
   }
 
   mapFlagsCheckboxValues() {
@@ -65,6 +83,25 @@ export class JokesAddComponent  {
         return { title: this.flags[i].title,  selected };
       })
     });
+  }
+
+  constructFormData(formValue) {
+    return  {
+      id: this.jokes.length + 1,
+      joke: {
+        content: formValue.content,
+        category: formValue.category,
+        punchline: formValue.delivery ? formValue.delivery : ''
+      },
+      flags: formValue.flags
+    };
+  }
+
+  storeJokeIntoLocalStorage(data) {
+    const jokes = [...this.jokes, data];
+    localStorage.setItem('jokes', JSON.stringify(jokes));
+    this.form.reset();
+    this.openSnackBar('Joke Added Successfully');
   }
 
 }

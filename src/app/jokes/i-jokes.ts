@@ -1,9 +1,9 @@
-export interface Jokes {
+export interface Joke {
   id?: number;
   joke: {
     content: string;
     category: string;
     punchline?: string;
   };
-  flags: Array<string>;
+  flags: { title: string; selected: boolean }[];
 }

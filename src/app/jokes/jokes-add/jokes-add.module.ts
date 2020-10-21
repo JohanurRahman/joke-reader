@@ -3,7 +3,14 @@ import { CommonModule } from '@angular/common';
 import { JokesAddComponent } from './jokes-add.component';
 import { JokesAddRoutingModule } from './jokes-add-routing.module';
 import { MatCardModule } from '@angular/material/card';
-import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatSnackBarModule
+} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
@@ -18,6 +25,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatInputModule,
     FormsModule,
     MatCheckboxModule,
+    MatSnackBarModule,
     ReactiveFormsModule
   ]
 })

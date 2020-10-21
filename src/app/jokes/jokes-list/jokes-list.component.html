@@ -27,7 +27,12 @@
   <ng-container matColumnDef="flags">
     <th mat-header-cell *matHeaderCellDef> Name </th>
     <td mat-cell *matCellDef="let element">
-      <i class="material-icons" *ngFor="let item of element.flags">{{ item }}</i>
+      <ng-container *ngFor="let item of element.flags">
+        <i class="material-icons" *ngIf="item.title === 'NSFW' && item.selected">check_circle</i>
+        <i class="material-icons" *ngIf="item.title === 'Religious' && item.selected">check_circle_outline</i>
+        <i class="material-icons" *ngIf="item.title === 'Political' && item.selected">filter_alt</i>
+        <i class="material-icons" *ngIf="item.title === 'Racist' && item.selected">help</i>
+      </ng-container>
     </td>
   </ng-container>
 

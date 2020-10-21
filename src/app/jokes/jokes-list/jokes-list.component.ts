@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
-import { Jokes } from '../i-jokes';
+import { Joke } from '../i-jokes';
 
 @Component({
   selector: 'app-jokes-list',
   templateUrl: './jokes-list.component.html',
   styleUrls: ['./jokes-list.component.scss']
 })
+
 export class JokesListComponent  {
 
   displayedColumns: string[] = ['joke', 'flags', 'actions'];
-  dataSource: Jokes[];
+  dataSource: Joke[];
 
   constructor() {
     this.getJokesFromStorage();
@@ -20,7 +21,7 @@ export class JokesListComponent  {
   }
 
   playRandomJokes() {
-    for (const item of Jokes) {
+    for (const item of this.dataSource) {
       if (item.joke.punchline) {
         const content = new SpeechSynthesisUtterance(item.joke.content);
         const punchline = new SpeechSynthesisUtterance(item.joke.punchline);
