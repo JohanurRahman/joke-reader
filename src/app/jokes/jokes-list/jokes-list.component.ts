@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Jokes} from '../jokes-types/jokes';
+import { Jokes } from '../i-jokes';
 
 const ELEMENT_DATA: Jokes[] = [
   {

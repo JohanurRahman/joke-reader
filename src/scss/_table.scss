@@ -8,7 +8,7 @@
     height: 45px;
   }
   tr.mat-row {
-    height: 40px;
+    min-height: 40px;
   }
 
   thead tr th.mat-header-cell,
@@ -21,6 +21,16 @@
 
     &:last-of-type {
       border-radius: 0 5px 5px 0;
+    }
+  }
+
+  tbody tr td.mat-cell {
+    &:first-of-type {
+      padding: 10px 0 10px 15px !important;
+    }
+
+    &:last-of-type {
+      padding: 10px 15px 10px 0 !important;
     }
   }
 
