@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Joke} from '../i-jokes';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-jokes-player',
@@ -17,6 +18,7 @@ export class JokesPlayerComponent implements OnDestroy {
   nextJokeId: number;
 
   constructor(private activatedRoute: ActivatedRoute,
+              private snackbar: MatSnackBar,
               private router: Router) {
     this.activatedRoute.data.subscribe(({ joke }) => {
       this.joke = joke;
@@ -67,6 +69,7 @@ export class JokesPlayerComponent implements OnDestroy {
     const index = this.jokesFromStorage.findIndex((item) => item.id === this.joke.id);
     this.jokesFromStorage[index] = this.joke;
     localStorage.setItem('jokes', JSON.stringify(this.jokesFromStorage));
+    this.snackbar.open('Flag Added', 'Ok', { duration: 3000 });
   }
 
   ngOnDestroy() {
