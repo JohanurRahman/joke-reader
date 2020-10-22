@@ -1,0 +1,27 @@
+:host ::ng-deep {
+  .mat-stroked-button {
+    &:first-of-type {
+      margin-right: 10px;
+    }
+  }
+
+  .mat-button-wrapper {
+    display: flex;
+    align-items: center;
+
+    .icon {
+      &-add, &-play {
+        font-size: 18px;
+        margin-right: 5px;
+      }
+
+      &-add {
+        font-weight: 600;
+      }
+
+      &-play {
+        color: #ff0000;
+      }
+    }
+  }
+}

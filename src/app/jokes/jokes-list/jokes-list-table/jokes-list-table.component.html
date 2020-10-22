@@ -1,0 +1,36 @@
+<table mat-table [dataSource]="dataSource" class="table-theme">
+
+  <ng-container matColumnDef="joke" >
+    <th mat-header-cell *matHeaderCellDef> Joke </th>
+    <td mat-cell *matCellDef="let element">
+      <span style="margin-right: 10px; font-weight: 600">{{ element.content | limitString: 60: 50 }}</span>
+      <span style="color: grey; font-weight: 600">{{ element.category }}</span>
+      <p class="m-0" *ngIf="element.punchline">{{ element.punchline | limitString: 60: 50 }}</p>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="flags">
+    <th mat-header-cell *matHeaderCellDef> Flags </th>
+    <td mat-cell *matCellDef="let element">
+      <ng-container *ngFor="let item of element.flags">
+        <i class="material-icons" *ngIf="item.title === 'NSFW' && item.selected">report_off</i>
+        <i class="material-icons" *ngIf="item.title === 'Religious' && item.selected">star</i>
+        <i class="material-icons" *ngIf="item.title === 'Political' && item.selected">emoji_people</i>
+        <i class="material-icons" *ngIf="item.title === 'Racist' && item.selected">stop_circle</i>
+      </ng-container>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="actions">
+        <i class="material-icons icon-edit" [routerLink]="['/', 'jokes', element.id, 'edit']">edit</i>
+        <i class="material-icons icon-play" [routerLink]="['/', 'jokes', element.id, 'play']">play_arrow</i>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

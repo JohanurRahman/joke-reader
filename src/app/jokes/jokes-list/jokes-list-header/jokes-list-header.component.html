@@ -1,0 +1,20 @@
+<div class="d-flex justify-content-between mb-3">
+  <div class="d-flex align-items-center">
+    <span class="mr-2 d-flex"><i class="material-icons">report_off</i> - NSFW</span>
+    <span class="mr-2 d-flex"><i class="material-icons">star</i> - Religion</span>
+    <span class="mr-2 d-flex"><i class="material-icons">emoji_people</i> - Political</span>
+    <span class="mr-2 d-flex"><i class="material-icons">stop_circle</i> - Racist</span>
+  </div>
+
+  <div>
+    <a class="text-decoration-none" mat-stroked-button routerLink="./add">
+      <i class="material-icons icon-add">add</i>
+      <span>Add New Joke</span>
+    </a>
+
+    <a class="text-decoration-none" mat-stroked-button (click)="navigateToRandomJoke()">
+      <i class="material-icons icon-play">play_arrow</i>
+      <span>Play Jokes</span>
+    </a>
+  </div>
+</div>
