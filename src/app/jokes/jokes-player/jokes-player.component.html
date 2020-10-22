@@ -20,7 +20,8 @@
       <h6 *ngIf="joke.punchline && showPunchline">{{ joke.punchline }}</h6>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-flat-button color="primary" (click)="navigateToRandomJoke()">Next</button>
+      <button mat-stroked-button class="button-back" routerLink="./jokes">Back</button>
+      <button mat-stroked-button class="button-save" (click)="navigateToRandomJoke()">Next</button>
     </mat-card-actions>
   </mat-card>
 </div>
