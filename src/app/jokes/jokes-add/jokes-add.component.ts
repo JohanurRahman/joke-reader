@@ -6,8 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./jokes-add.component.scss']
 })
 
-export class JokesAddComponent  {
-
-  title = 'Add Joke';
-
-}
+export class JokesAddComponent { }

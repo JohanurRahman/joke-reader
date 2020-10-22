@@ -1,4 +1,8 @@
 :host ::ng-deep {
+  mat-form-field {
+    width: 100%;
+  }
+
   .mat-checkbox-layout {
     margin-bottom: 0;
   }
@@ -22,16 +26,30 @@
   }
 }
 
-.example-section {
+.card-container {
+  max-width: 50%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.resize-none {
+  resize: none;
+}
+
+.checkbox-container {
   display: flex;
   align-content: center;
   align-items: center;
   height: 60px;
   margin-bottom: 10px;
-}
 
-.example-margin {
-  margin-right: 20px;
-  //margin: 0 10px;
+  mat-label {
+    margin-right: 20px;
+    font-size: 15px;
+  }
+
+  .mat-checkbox {
+    margin-right: 20px;
+  }
 }
 

@@ -1,6 +1,5 @@
-<div style="max-width: 50%; text-align: center; margin: 0 auto">
-
-  <mat-card class="example-card mat-elevation-z2">
+<div class="card-container">
+  <mat-card class="mat-elevation-z2">
 
     <mat-card-header>
       <mat-card-title>{{ cardTitle }}</mat-card-title>
@@ -8,39 +7,35 @@
 
     <mat-card-content class="d-flex flex-column align-items-start mt-3" [formGroup]="form">
 
-      <mat-form-field style="width: 100%" appearance="outline">
+      <mat-form-field appearance="outline">
         <mat-label>Category</mat-label>
         <mat-select formControlName="category">
           <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field style="width: 100%" appearance="outline">
+      <mat-form-field appearance="outline">
         <mat-label>Type</mat-label>
         <mat-select formControlName="type">
           <mat-option *ngFor="let type of types " [value]="type" >{{ type }}</mat-option>
         </mat-select>
       </mat-form-field>
 
-
-      <section class="example-section">
-        <mat-label style="margin-right: 20px; font-size: 15px">Flags: </mat-label>
+      <section class="checkbox-container">
+        <mat-label>Flags: </mat-label>
         <div *ngFor="let flag of flagsFormArray.controls; let i = index">
-          <mat-checkbox class="example-margin" [formControl]="flag">
-            {{ flags[i].title }}
-          </mat-checkbox>
+          <mat-checkbox [formControl]="flag"> {{ flags[i].title }} </mat-checkbox>
         </div>
       </section>
 
-
-      <mat-form-field style="width: 100%" appearance="outline">
+      <mat-form-field appearance="outline">
         <mat-label>Content</mat-label>
-        <textarea matInput style="resize: none;" rows="5" formControlName="content"></textarea>
+        <textarea matInput class="resize-none" rows="5" formControlName="content"></textarea>
       </mat-form-field>
 
-      <mat-form-field style="width: 100%" appearance="outline" *ngIf="showPunchlineInput">
+      <mat-form-field appearance="outline" *ngIf="showPunchlineInput">
         <mat-label>Delivery</mat-label>
-        <textarea matInput style="resize: none;" rows="5" formControlName="punchline"></textarea>
+        <textarea matInput class="resize-none" rows="5" formControlName="punchline"></textarea>
       </mat-form-field>
 
     </mat-card-content>
