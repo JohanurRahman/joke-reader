@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { JokesPlayerComponent } from './jokes-player.component';
 import { JokesPlayerRoutingModule } from './jokes-player-routing.module';
+import {MatButtonModule, MatCardModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,9 @@ import { JokesPlayerRoutingModule } from './jokes-player-routing.module';
   ],
   imports: [
     CommonModule,
-    JokesPlayerRoutingModule
+    JokesPlayerRoutingModule,
+    MatCardModule,
+    MatButtonModule
   ]
 })
 

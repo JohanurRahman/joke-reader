@@ -1,1 +1,12 @@
-<h1>Jokes Player Works</h1>
+
+<div style="max-width: 50%; text-align: center; margin: 0 auto">
+  <mat-card class="example-card" >
+    <mat-card-content class="mb-5">
+      <h4 class="mb-3">{{ joke.content }}</h4>
+      <h5 *ngIf="joke.punchline && showPunchline">{{ joke.punchline }}</h5>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button color="primary" (click)="navigateToRandomJoke()">Next</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
