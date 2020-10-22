@@ -1,9 +1,23 @@
 
 <div style="max-width: 50%; text-align: center; margin: 0 auto">
   <mat-card class="example-card" >
-    <mat-card-content class="mb-5">
-      <h4 class="mb-3">{{ joke.content }}</h4>
-      <h5 *ngIf="joke.punchline && showPunchline">{{ joke.punchline }}</h5>
+
+    <mat-card-content class="mb-4" style="text-align: left">
+      <div class="d-flex justify-content-between mb-3">
+        <p>Category: {{ joke.category }}</p>
+        <div class="d-flex" >
+          <div *ngFor="let item of joke.flags; let i = index" (click)="onSelectFlag(item)">
+            <i class="material-icons" *ngIf="item.title === 'NSFW'">check_circle</i>
+            <i class="material-icons" *ngIf="item.title === 'Religious'">check_circle_outline</i>
+            <i class="material-icons" *ngIf="item.title === 'Political'">filter_alt</i>
+            <i class="material-icons" *ngIf="item.title === 'Racist'">help</i>
+          </div>
+        </div>
+      </div>
+
+      <h5 class="mb-3">{{ joke.content }} </h5>
+
+      <h6 *ngIf="joke.punchline && showPunchline">{{ joke.punchline }}</h6>
     </mat-card-content>
     <mat-card-actions>
       <button mat-flat-button color="primary" (click)="navigateToRandomJoke()">Next</button>

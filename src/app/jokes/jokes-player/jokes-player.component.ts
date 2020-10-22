@@ -11,6 +11,7 @@ import { Joke} from '../i-jokes';
 export class JokesPlayerComponent implements OnDestroy {
 
   joke: Joke;
+  jokesFromStorage: Joke[];
   showPunchline = false;
   timeout;
   nextJokeId: number;
@@ -40,8 +41,8 @@ export class JokesPlayerComponent implements OnDestroy {
   }
 
   mapJokesArrayForRandomJoke() {
-    const jokes = JSON.parse(localStorage.getItem('jokes'));
-    const arr = jokes.filter(item => item.id !== this.joke.id);
+    this.jokesFromStorage = JSON.parse(localStorage.getItem('jokes'));
+    const arr = this.jokesFromStorage.filter(item => item.id !== this.joke.id);
     const random = Math.floor(Math.random() * arr.length);
     this.nextJokeId = arr[random].id;
   }
@@ -56,8 +57,19 @@ export class JokesPlayerComponent implements OnDestroy {
     this.router.navigate(['/', 'jokes', this.nextJokeId, 'play']).then(() => this.mapJokesArrayForRandomJoke());
   }
 
+  onSelectFlag(value: { title: string; selected: boolean }) {
+    const index =  this.joke.flags.findIndex((item) => item.title === value.title);
+    this.joke.flags[index].selected = true;
+    this.updateStorageData();
+  }
+
+  updateStorageData() {
+    const index = this.jokesFromStorage.findIndex((item) => item.id === this.joke.id);
+    this.jokesFromStorage[index] = this.joke;
+    localStorage.setItem('jokes', JSON.stringify(this.jokesFromStorage));
+  }
+
   ngOnDestroy() {
     this.clearSpeech();
   }
-
 }
