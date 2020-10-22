@@ -7,10 +7,10 @@
         <p>Category: {{ joke.category }}</p>
         <div class="d-flex" >
           <div *ngFor="let item of joke.flags; let i = index" (click)="onSelectFlag(item)">
-            <i class="material-icons" *ngIf="item.title === 'NSFW'">check_circle</i>
-            <i class="material-icons" *ngIf="item.title === 'Religious'">check_circle_outline</i>
-            <i class="material-icons" *ngIf="item.title === 'Political'">filter_alt</i>
-            <i class="material-icons" *ngIf="item.title === 'Racist'">help</i>
+            <i class="material-icons" *ngIf="item.title === 'NSFW'">report_off</i>
+            <i class="material-icons" *ngIf="item.title === 'Religious'">star</i>
+            <i class="material-icons" *ngIf="item.title === 'Political'">emoji_people</i>
+            <i class="material-icons" *ngIf="item.title === 'Racist'">stop_circle</i>
           </div>
         </div>
       </div>
