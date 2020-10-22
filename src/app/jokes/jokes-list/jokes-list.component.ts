@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Joke } from '../i-jokes';
 import {PageChangedEvent} from 'ngx-bootstrap';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-jokes-list',
@@ -16,7 +17,7 @@ export class JokesListComponent  {
   itemsPerPage = 5;
   jokesList: Joke[];
 
-  constructor() {
+  constructor(private router: Router) {
     this.getJokesFromStorage();
   }
 
@@ -25,21 +26,13 @@ export class JokesListComponent  {
     this.dataSource = this.jokesList.slice(0, 5);
   }
 
-  // playRandomJokes() {
-  //   for (const item of this.dataSource) {
-  //     if (item.joke.punchline) {
-  //       const content = new SpeechSynthesisUtterance(item.joke.content);
-  //       const punchline = new SpeechSynthesisUtterance(item.joke.punchline);
-  //       (window as any).speechSynthesis.speak(content);
-  //       (window as any).speechSynthesis.speak(punchline);
-  //     } else {
-  //       const content = new SpeechSynthesisUtterance(item.joke.content);
-  //       (window as any).speechSynthesis.speak(content);
-  //     }
-  //   }
-  // }
-
   pageChanged($event: PageChangedEvent) {
     this.dataSource = this.jokesList.slice($event.page * this.itemsPerPage - this.itemsPerPage, $event.page * this.itemsPerPage);
+  }
+
+  navigateToRandomJoke() {
+    const jokes = JSON.parse(localStorage.getItem('jokes'));
+    const random = Math.floor(Math.random() * jokes.length);
+    this.router.navigate(['/', 'jokes', jokes[random].id, 'play']);
   }
 }
